@@ -71,6 +71,44 @@ public void preorderIterative()
 		//System.out.println("cur: "+current);
 	}
 }
+public void postorderIterative()
+{
+	Stack<Node> s=new Stack(); Node current=root; Node pre=null;
+	do
+	{
+		if(current!=null)
+		{
+			s.push(current);
+			if(current.right!=null) s.push(current.right);
+		}
+		else
+		{
+			Node temp=s.pop();
+			if(temp.right!=null&&temp.right!=pre)
+			{
+				s.push(temp);
+				s.push(temp.right);
+				current=temp;
+			}
+			else
+			{
+				System.out.print(temp.data+" , ");
+				pre=temp;
+			}
+		}
+		if(current!=null) current=current.left;
+	}while(!s.isEmpty());
+}
+
+public void postorder(Node root)
+{
+	if(root!=null)
+	{
+		postorder(root.left);
+		postorder(root.right);
+		System.out.print(root.data+" , ");
+	}
+}
 
 public int maxIntInterative()
 {

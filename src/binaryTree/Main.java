@@ -19,7 +19,12 @@ public class Main {
 		obj.insertData(12);
 		obj.insertData(13);
     	obj.insertData(14);
-    	System.out.println(obj.minDepth());
+//    	System.out.println(obj.minDepth());
+		
+		obj.postorder(obj.root);
+		System.out.println();
+		obj.postorderIterative();;;
+		
 //System.out.println(obj.noOfLeafNode());
 //System.out.println(obj.noOfLeafNodeRecursion(obj.root));
 //	obj.inorder(obj.root);
